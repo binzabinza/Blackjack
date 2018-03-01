@@ -8,5 +8,11 @@ class Card:
         self.suit = self.suits[suit]
         self.rank = self.ranks[rank]
 
-    def display(self):
-        return self.rank + self.suit
+    def __str__(self):
+        return self.rank + self.suit.encode('utf-8')
+
+    def value(self):
+        val = self.ranks.index(self.rank)
+        if (val > 10):
+            val = 10
+        return val
